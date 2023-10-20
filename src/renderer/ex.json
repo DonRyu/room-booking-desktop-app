@@ -1,0 +1,29 @@
+{
+  "room": "203호",
+  "booking": [
+    {
+      "date": 0,
+      "user": 18
+    },
+    {
+      "date": 1,
+      "user": 18
+    },
+    {
+      "date": 2,
+      "user": null
+    },
+    {
+      "date": 3,
+      "user": null
+    },
+    {
+      "date": 4,
+      "user": 20
+    },
+    {
+      "date": 5,
+      "user": 20
+    }
+  ]
+}
