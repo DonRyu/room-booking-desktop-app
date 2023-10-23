@@ -9,7 +9,6 @@ function Calendar(props: Props) {
 
   return (
     <div style={{ backgroundColor: 'red', height: '100%' }}>
-
       <DateSlider />
     </div>
   );

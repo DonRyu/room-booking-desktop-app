@@ -10,9 +10,16 @@ import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
 import { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { numOfDays } from './constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './redux/store';
+import { changeDays } from './redux/slice';
 
 function View() {
   const [collapsed, setCollapsed] = useState(false);
+  const num_Days = useSelector((state: RootState) => state.days);
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   return (
@@ -56,13 +63,26 @@ function View() {
             height: 64,
           }}
         />
-
         <div>
-          <Button>7</Button>
-          <Button>15</Button>
-          <Button>30</Button>
+          <Button
+            type={num_Days === numOfDays.week ? 'primary' : 'default'}
+            onClick={() => dispatch(changeDays(numOfDays.week))}
+          >
+            {numOfDays.week}
+          </Button>
+          <Button
+            type={num_Days === numOfDays.biWeek ? 'primary' : 'default'}
+            onClick={() => dispatch(changeDays(numOfDays.biWeek))}
+          >
+            {numOfDays.biWeek}
+          </Button>
+          <Button
+            type={num_Days === numOfDays.month ? 'primary' : 'default'}
+            onClick={() => dispatch(changeDays(numOfDays.month))}
+          >
+            {numOfDays.month}
+          </Button>
         </div>
-
         <Routes>
           <Route path="/" Component={Calendar} />
         </Routes>
