@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 interface Props {}
 
 function DateSlider(props: Props) {
-  const {} = props
-  const today = new Date();
-  const startDate = new Date(today);
-  startDate.setDate(today.getDate() - today.getDay());
-  const setDate = useState()
+  const {} = props;
 
+  const num_Days = useSelector((state: RootState) => state.days);
 
+  const showDate = () => {
+    const today = new Date();
+    const startDate = new Date(today);
 
-  return (
-  <div>
-    {startDate.toLocaleString()}
-  </div>
-  )
+    return 0;
+  };
+
+  return <div>{showDate()}</div>;
 }
 
-export default DateSlider
+export default DateSlider;

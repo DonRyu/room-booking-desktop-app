@@ -53,35 +53,43 @@ function View() {
         />
       </Sider>
       <Layout>
-        <Button
-          type="text"
-          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          onClick={() => setCollapsed(!collapsed)}
+        <div
           style={{
-            fontSize: '16px',
-            width: 64,
-            height: 64,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
-        />
-        <div>
+        >
           <Button
-            type={num_Days === numOfDays.week ? 'primary' : 'default'}
-            onClick={() => dispatch(changeDays(numOfDays.week))}
-          >
-            {numOfDays.week}
-          </Button>
-          <Button
-            type={num_Days === numOfDays.biWeek ? 'primary' : 'default'}
-            onClick={() => dispatch(changeDays(numOfDays.biWeek))}
-          >
-            {numOfDays.biWeek}
-          </Button>
-          <Button
-            type={num_Days === numOfDays.month ? 'primary' : 'default'}
-            onClick={() => dispatch(changeDays(numOfDays.month))}
-          >
-            {numOfDays.month}
-          </Button>
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+            style={{
+              fontSize: '16px',
+              width: 64,
+              height: 64,
+            }}
+          />
+          <div>
+            <Button
+              type={num_Days === numOfDays.week ? 'primary' : 'default'}
+              onClick={() => dispatch(changeDays(numOfDays.week))}
+            >
+              {numOfDays.week}
+            </Button>
+            <Button
+              type={num_Days === numOfDays.biWeek ? 'primary' : 'default'}
+              onClick={() => dispatch(changeDays(numOfDays.biWeek))}
+            >
+              {numOfDays.biWeek}
+            </Button>
+            <Button
+              type={num_Days === numOfDays.month ? 'primary' : 'default'}
+              onClick={() => dispatch(changeDays(numOfDays.month))}
+            >
+              {numOfDays.month}
+            </Button>
+          </div>
         </div>
         <Routes>
           <Route path="/" Component={Calendar} />
