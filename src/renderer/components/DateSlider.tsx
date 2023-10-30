@@ -27,11 +27,11 @@ function DateSlider(props: Props) {
     //   } else {
     //     days.push(date.date());
     //   }
-    }
+    // }
 
-    return days;
+    // return days;
   }
-  return <div>{showDate()}</div>;
+  // return <div>{showDate()}</div>;
 }
 
 export default DateSlider;
