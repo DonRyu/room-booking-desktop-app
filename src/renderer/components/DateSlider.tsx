@@ -12,10 +12,10 @@ function DateSlider(props: Props) {
   const num_Days = useSelector((state: RootState) => state.days);
 
   function showDate(num_Days: number) {
-    const today = dayjs();
+    const startOfWeek = dayjs().startOf('week');
     let days = [];
     for (let i = 0; i < num_Days; i++) {
-      const date = today.add(i, 'day');
+      const date = startOfWeek.add(i, 'day');
       days.push(date.format('DD'));
     }
     return days;
