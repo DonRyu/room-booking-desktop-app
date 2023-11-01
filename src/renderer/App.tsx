@@ -14,6 +14,7 @@ import { numOfDays } from './constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import { changeDays } from './redux/slice';
+import DateStatus from './components/DateStatus';
 
 function View() {
   const [collapsed, setCollapsed] = useState(true);
@@ -63,16 +64,20 @@ function View() {
             alignItems: 'center',
           }}
         >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
+          <div style={{display:'flex',alignItems:'center'}}>
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: '16px',
+                width: 64,
+                height: 64,
+              }}
+            />
+            <DateStatus />
+          </div>
+
           <div>
             <Button
               type={num_Days === numOfDays.week ? 'primary' : 'default'}
