@@ -10,7 +10,7 @@ interface Props {}
 
 function DateSlider(props: Props) {
   const {} = props;
-
+  const todayDate = dayjs().format('DD');
   const num_Days = useSelector((state: RootState) => state.days);
 
   function showDate(num_Days: number) {
@@ -18,7 +18,7 @@ function DateSlider(props: Props) {
     let days = [];
     for (let i = 0; i < num_Days; i++) {
       const date = startOfWeek.add(i, 'day');
-      days.push(date.format('DD'));
+      days.push({ ddd: date.format('ddd'), dd: date.format('DD') });
     }
     return days;
   }
@@ -27,10 +27,18 @@ function DateSlider(props: Props) {
     <div style={{ width: '100%' }}>
       <div style={{ display: 'flex' }}>
         {showDate(num_Days).map((item) => {
-          return <CalendarBtn>{item}</CalendarBtn>;
+          return (
+            <CalendarBtn
+              style={
+                item.dd === todayDate
+                  ? { backgroundColor: '#1677FF', color: 'white' }
+                  : {}
+              }
+            >{`${item.ddd} ${item.dd}`}</CalendarBtn>
+          );
         })}
       </div>
-      <Booking/>
+      <Booking />
     </div>
   );
 }

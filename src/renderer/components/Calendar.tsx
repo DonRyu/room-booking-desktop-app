@@ -10,8 +10,16 @@ function Calendar(props: Props) {
   const {} = props;
 
   return (
-    <div style={{ backgroundColor: 'red', height: '100%',display:'flex',width:'100%',minWidth:1100 }}>
-      <RoomType/>
+    <div
+      style={{
+        backgroundColor: 'red',
+        height: '100%',
+        display: 'flex',
+        width: '100%',
+        minWidth: 1100,
+      }}
+    >
+      <RoomType />
       <DateSlider />
     </div>
   );

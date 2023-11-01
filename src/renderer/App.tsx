@@ -8,7 +8,7 @@ import Calendar from './components/Calendar';
 import { Button, Layout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { numOfDays } from './constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,11 +16,14 @@ import { RootState } from './redux/store';
 import { changeDays } from './redux/slice';
 
 function View() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const num_Days = useSelector((state: RootState) => state.days);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/`);
+  }, []);
 
   return (
     <Layout style={{ minHeight: 830, height: '98vh' }}>
@@ -52,7 +55,7 @@ function View() {
           ]}
         />
       </Sider>
-      <Layout>
+      <Layout style={{ minWidth: 1100 }}>
         <div
           style={{
             display: 'flex',
@@ -89,6 +92,7 @@ function View() {
             >
               {numOfDays.month}
             </Button>
+            <Button>Add</Button>
           </div>
         </div>
         <Routes>
