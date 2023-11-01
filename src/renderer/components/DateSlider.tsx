@@ -25,7 +25,7 @@ function DateSlider(props: Props) {
 
   return (
     <div style={{ width: '100%' }}>
-      <div style={{ width: '100%', display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         {showDate(num_Days).map((item) => {
           return <CalendarBtn>{item}</CalendarBtn>;
         })}
