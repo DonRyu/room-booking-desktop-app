@@ -5,18 +5,17 @@ import { Button } from 'antd';
 
 interface Props {}
 
-function Room(props: Props) {
+function Booking(props: Props) {
   const {} = props;
   const num_Days = useSelector((state: RootState) => state.days);
 
   return (
-    <div style={{backgroundColor:'blue',marginTop:20}}>
-      <div>203</div>
-      {/* {Array(num_Days).map((_,)=>{
-        return <Button>{item}</Button>
-      })} */}
+    <div style={{backgroundColor:'blue'}}>
+      {Array(num_Days).fill(1).map((_,)=>{
+        return <Button>{}</Button>
+      })}
     </div>
   );
 }
 
-export default Room;
+export default Booking;

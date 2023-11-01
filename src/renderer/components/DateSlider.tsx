@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import dayjs from 'dayjs';
 import { Button } from 'antd';
+import Room from './Booking';
 
 interface Props {}
 
-function DateSlider(props: Props) {
+function Booking(props: Props) {
   const {} = props;
 
   const num_Days = useSelector((state: RootState) => state.days);
@@ -27,8 +28,9 @@ function DateSlider(props: Props) {
       {showDate(num_Days).map((item)=>{
         return <Button>{item}</Button>
       })}
+      <Room/>
     </div>
    )
 }
 
-export default DateSlider;
+export default Booking;
