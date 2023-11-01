@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import dayjs from 'dayjs';
 import { Button } from 'antd';
-import Room from './Booking';
+import { CalendarBtn } from '../style';
+import Booking from './Booking';
 
 interface Props {}
 
-function Booking(props: Props) {
+function DateSlider(props: Props) {
   const {} = props;
 
   const num_Days = useSelector((state: RootState) => state.days);
@@ -22,15 +23,16 @@ function Booking(props: Props) {
     return days;
   }
 
-
-   return(
-    <div>
-      {showDate(num_Days).map((item)=>{
-        return <Button>{item}</Button>
-      })}
-      <Room/>
+  return (
+    <div style={{ width: '100%' }}>
+      <div style={{ width: '100%', display: 'flex' }}>
+        {showDate(num_Days).map((item) => {
+          return <CalendarBtn>{item}</CalendarBtn>;
+        })}
+      </div>
+      <Booking/>
     </div>
-   )
+  );
 }
 
-export default Booking;
+export default DateSlider;
