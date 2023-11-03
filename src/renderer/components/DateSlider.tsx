@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import dayjs from 'dayjs';
 import { Button } from 'antd';
-import { CalendarBtn } from '../style';
+import { DateBtn } from '../style';
 import Booking from './Booking';
 
 interface Props {}
@@ -28,13 +28,13 @@ function DateSlider(props: Props) {
       <div style={{ display: 'flex' }}>
         {showDate(num_Days).map((item) => {
           return (
-            <CalendarBtn
+            <DateBtn
               style={
                 item.dd === todayDate
                   ? { backgroundColor: '#1677FF', color: 'white' }
                   : {}
               }
-            >{`${item.ddd} ${item.dd}`}</CalendarBtn>
+            >{`${item.ddd} ${item.dd}`}</DateBtn>
           );
         })}
       </div>

@@ -9,7 +9,13 @@ import { Button, Layout, Menu } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
 import { useEffect, useState } from 'react';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  CalendarOutlined,
+  HistoryOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+} from '@ant-design/icons';
 import { numOfDays } from './constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
@@ -29,7 +35,6 @@ function View() {
   return (
     <Layout style={{ minHeight: 830, height: '98vh' }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
           mode="inline"
@@ -37,24 +42,27 @@ function View() {
           items={[
             {
               key: '1',
-              // icon: <UserOutlined />,
+              icon: <CalendarOutlined />,
               label: 'Calendar',
               onClick: () => navigate('/'),
             },
             {
               key: '2',
-              // icon: <VideoCameraOutlined />,
+              icon: <AppstoreOutlined />,
               label: 'Room Type',
               onClick: () => navigate('/type'),
             },
             {
               key: '3',
-              // icon: <UploadOutlined />,
+              icon: <HistoryOutlined />,
               label: 'History',
               onClick: () => navigate('/log'),
             },
           ]}
         />
+        <div style={{ color: 'white', backgroundColor: '#001529',textAlign:'center',position:'absolute',bottom:10 }}>
+          ©2023 Created by Don Ryu
+        </div>
       </Sider>
       <Layout style={{ minWidth: 1100 }}>
         <div
@@ -64,7 +72,7 @@ function View() {
             alignItems: 'center',
           }}
         >
-          <div style={{display:'flex',alignItems:'center'}}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <Button
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -92,6 +100,7 @@ function View() {
               {numOfDays.biWeek}
             </Button>
             <Button
+              style={{ marginRight: 50 }}
               type={num_Days === numOfDays.month ? 'primary' : 'default'}
               onClick={() => dispatch(changeDays(numOfDays.month))}
             >
@@ -104,11 +113,6 @@ function View() {
           <Route path="/" Component={Calendar} />
         </Routes>
       </Layout>
-      <Footer
-        style={{ position: 'absolute', left: '50%', bottom: 0, padding: 0 }}
-      >
-        ©2023 Created by Don Ryu
-      </Footer>
     </Layout>
   );
 }

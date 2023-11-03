@@ -8,8 +8,10 @@ function RoomType(props: Props) {
   return (
     <div
       style={{
-        backgroundColor: 'green',
-        marginTop: 30,
+        // backgroundColor: 'grey',
+        borderRight:'1px solid black',
+
+        // marginTop: 30,
         width: 100,
         maxWidth:100,
         textAlign: 'center',
@@ -25,7 +27,7 @@ function RoomType(props: Props) {
         }}
       >
         {/* max 6 letters */}
-        aa203a
+        203
       </div>
     </div>
   );

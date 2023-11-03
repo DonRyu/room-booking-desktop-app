@@ -12,7 +12,7 @@ function Calendar(props: Props) {
   return (
     <div
       style={{
-        backgroundColor: 'red',
+        // backgroundColor: 'red',
         height: '100%',
         display: 'flex',
         width: '100%',
