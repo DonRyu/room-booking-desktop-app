@@ -22,6 +22,7 @@ import { RootState } from './redux/store';
 import { changeDays } from './redux/slice';
 import DateStatus from './components/DateStatus';
 import logo from '../renderer/Logo.png';
+import logoSm from '../renderer/LogoSm.png';
 
 function View() {
   const [collapsed, setCollapsed] = useState(true);
@@ -37,7 +38,7 @@ function View() {
     <Layout style={{ minHeight: 830, height: '98vh' }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div style={{ height: 65,display:'flex',alignItems:'center',justifyContent:'center',padding:10 }}>
-          <img src={logo} style={{ height: '100%', width: '80%' }} />
+          {!collapsed ? <img src={logo} style={{ height: '100%', width: '80%',objectFit:'contain' }} />: <img src={logoSm} style={{ height: '100%', width: '100%',objectFit:'contain' }} />  }
         </div>
         <Menu
           theme="dark"
