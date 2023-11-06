@@ -11,7 +11,7 @@ function Booking(props: Props) {
   const num_Days = useSelector((state: RootState) => state.days);
 
   return (
-    <div style={{ height: '97%' }}>
+    <div style={{ height: '95%' }}>
       <div style={{ display: 'flex' }}>
       <BookingBtn>{}</BookingBtn>
         {Array(num_Days)

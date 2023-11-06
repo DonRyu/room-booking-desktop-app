@@ -16,7 +16,7 @@ function Calendar(props: Props) {
         height: '100%',
         display: 'flex',
         width: '100%',
-        minWidth: 1100,
+        minWidth: 1300,
       }}
     >
       {/* <RoomType /> */}
