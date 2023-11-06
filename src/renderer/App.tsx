@@ -35,7 +35,7 @@ function View() {
   }, []);
 
   return (
-    <Layout style={{ minHeight: 830, height: '98vh' }}>
+    <Layout style={{ minHeight: 830, height: '98.1vh' }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div style={{ height: 65,display:'flex',alignItems:'center',justifyContent:'center',padding:10 }}>
           {!collapsed ? <img src={logo} style={{ height: '100%', width: '80%',objectFit:'contain' }} />: <img src={logoSm} style={{ height: '100%', width: '100%',objectFit:'contain' }} />  }

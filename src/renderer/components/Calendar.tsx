@@ -19,7 +19,7 @@ function Calendar(props: Props) {
         minWidth: 1100,
       }}
     >
-      <RoomType />
+      {/* <RoomType /> */}
       <DateSlider />
     </div>
   );

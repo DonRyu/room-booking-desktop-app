@@ -11,15 +11,15 @@ function Booking(props: Props) {
   const num_Days = useSelector((state: RootState) => state.days);
 
   return (
-    <div style={{ height: '100%', maxHeight: 61 }}>
-      <div style={{ display: 'flex', height: '100%' }}>
+    <div style={{ height: '97%' }}>
+      <div style={{ display: 'flex' }}>
+      <BookingBtn>{}</BookingBtn>
         {Array(num_Days)
           .fill(1)
           .map((_) => {
             return <BookingBtn>{}</BookingBtn>;
           })}
       </div>
-
     </div>
   );
 }

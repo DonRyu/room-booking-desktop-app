@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const DateBtn = styled.button`
   width: 100%;
-  height: 30px;
+  max-height: 40px;
+  height:100%;
 `;
 
 export const BookingBtn = styled.button`

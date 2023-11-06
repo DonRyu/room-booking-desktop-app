@@ -25,7 +25,8 @@ function DateSlider(props: Props) {
 
   return (
     <div style={{ width: '100%' }}>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex',height:'5%' }}>
+        <DateBtn>Room</DateBtn>
         {showDate(num_Days).map((item) => {
           return (
             <DateBtn
