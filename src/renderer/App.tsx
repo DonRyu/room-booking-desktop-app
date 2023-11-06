@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import { changeDays } from './redux/slice';
 import DateStatus from './components/DateStatus';
+import logo from '../renderer/Logo.png';
 
 function View() {
   const [collapsed, setCollapsed] = useState(true);
@@ -35,6 +36,9 @@ function View() {
   return (
     <Layout style={{ minHeight: 830, height: '98vh' }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div style={{ height: 65,display:'flex',alignItems:'center',justifyContent:'center',padding:10 }}>
+          <img src={logo} style={{ height: '100%', width: '80%' }} />
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -60,7 +64,15 @@ function View() {
             },
           ]}
         />
-        <div style={{ color: 'white', backgroundColor: '#001529',textAlign:'center',position:'absolute',bottom:10 }}>
+        <div
+          style={{
+            color: 'white',
+            backgroundColor: '#001529',
+            textAlign: 'center',
+            position: 'absolute',
+            bottom: 10,
+          }}
+        >
           ©2023 Created by Don Ryu
         </div>
       </Sider>

@@ -11,7 +11,7 @@ function Booking(props: Props) {
   const num_Days = useSelector((state: RootState) => state.days);
 
   return (
-    <div style={{height:'100%',maxHeight:61}}>
+    <div style={{ height: '100%', maxHeight: 61 }}>
       <div style={{ display: 'flex', height: '100%' }}>
         {Array(num_Days)
           .fill(1)
@@ -19,83 +19,7 @@ function Booking(props: Props) {
             return <BookingBtn>{}</BookingBtn>;
           })}
       </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
-      <div style={{ display: 'flex', height: '100%' }}>
-        {Array(num_Days)
-          .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
-          })}
-      </div>
+
     </div>
   );
 }
