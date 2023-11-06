@@ -14,7 +14,7 @@ function DateSlider(props: Props) {
   const num_Days = useSelector((state: RootState) => state.days);
 
   function showDate(num_Days: number) {
-    const startOfWeek = dayjs().startOf('week');
+    const startOfWeek = dayjs(selectedDay).startOf('week');
     let days = [];
     for (let i = 0; i < num_Days; i++) {
       const date = startOfWeek.add(i, 'day');

@@ -9,7 +9,7 @@ export interface CalendarSate {
 }
 
 const initialState: CalendarSate = {
-  days: numOfDays.biWeek,
+  days: numOfDays.month,
   selectedDay: dayjs().toISOString(),
 };
 

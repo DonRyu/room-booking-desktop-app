@@ -13,26 +13,45 @@ import {
   AppstoreOutlined,
   CalendarOutlined,
   HistoryOutlined,
+  LeftOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  RightOutlined,
 } from '@ant-design/icons';
 import { numOfDays } from './constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
-import { changeDays } from './redux/slice';
+import { changeDays, changeSelectedDay } from './redux/slice';
 import DateStatus from './components/DateStatus';
 import logo from '../renderer/Logo.png';
 import logoSm from '../renderer/LogoSm.png';
+import { HeaderBtn } from './style';
+import dayjs from 'dayjs';
 
 function View() {
   const [collapsed, setCollapsed] = useState(true);
   const num_Days = useSelector((state: RootState) => state.days);
+  const selectedDay = useSelector((state: RootState) => state.selectedDay);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     navigate(`/`);
   }, []);
+
+  const movePrev = () => {
+    dispatch(
+      changeSelectedDay(
+        dayjs(selectedDay).subtract(num_Days, 'days').toISOString(),
+      ),
+    );
+  };
+
+  const moveNext = () => {
+    dispatch(
+      changeSelectedDay(dayjs(selectedDay).add(num_Days, 'days').toISOString()),
+    );
+  };
 
   return (
     <Layout
@@ -110,7 +129,9 @@ function View() {
             alignItems: 'center',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div
+            style={{ display: 'flex', alignItems: 'center', height: '100%' }}
+          >
             <Button
               type="text"
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -145,6 +166,12 @@ function View() {
               {numOfDays.month}
             </Button>
             <Button>Add</Button>
+            <HeaderBtn onClick={movePrev}>
+              <LeftOutlined />
+            </HeaderBtn>
+            <HeaderBtn onClick={moveNext}>
+              <RightOutlined />
+            </HeaderBtn>
           </div>
         </div>
         <Routes>

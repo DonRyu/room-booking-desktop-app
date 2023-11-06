@@ -1,8 +1,8 @@
 import React from 'react';
 import DateSlider from './DateSlider';
-import { Button } from 'antd';
-import Room from './Booking';
-import RoomType from './RoomType';
+
+
+
 
 interface Props {}
 
