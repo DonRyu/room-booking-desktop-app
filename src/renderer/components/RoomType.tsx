@@ -17,7 +17,7 @@ function RoomType(props: Props) {
           textAlign: 'center',
         }}
       >
-        <DateBtn style={{height:30}}>Room</DateBtn>
+        <DateBtn>Room</DateBtn>
         <BookingBtn>asd</BookingBtn>
       </div>
     </>
