@@ -16,8 +16,8 @@ function Booking(props: Props) {
       <BookingBtn>{}</BookingBtn>
         {Array(num_Days)
           .fill(1)
-          .map((_) => {
-            return <BookingBtn>{}</BookingBtn>;
+          .map((_,key) => {
+            return <BookingBtn key={key}>{}</BookingBtn>;
           })}
       </div>
     </div>

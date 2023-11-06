@@ -1,26 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { numOfDays } from '../constants'
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { numOfDays } from '../constants';
+import dayjs, { Dayjs } from 'dayjs';
 
 export interface CalendarSate {
-  days: number
+  days: number;
+  selectedDay:string;
 }
 
 const initialState: CalendarSate = {
   days: numOfDays.biWeek,
-}
+  selectedDay: dayjs().toISOString(),
+};
 
 export const calendarSlice = createSlice({
   name: 'calendar',
   initialState,
   reducers: {
     changeDays: (state, action: PayloadAction<number>) => {
-      state.days = action.payload
+      state.days = action.payload;
+    },
+    changeSelectedDay: (state, action: PayloadAction<string>) => {
+      state.selectedDay = action.payload;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { changeDays } = calendarSlice.actions
+export const { changeDays, changeSelectedDay } = calendarSlice.actions;
 
-export default calendarSlice.reducer
+export default calendarSlice.reducer;

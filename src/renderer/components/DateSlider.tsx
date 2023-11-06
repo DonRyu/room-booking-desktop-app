@@ -10,7 +10,7 @@ interface Props {}
 
 function DateSlider(props: Props) {
   const {} = props;
-  const todayDate = dayjs().format('DD');
+  const selectedDay = useSelector((state: RootState) => state.selectedDay);
   const num_Days = useSelector((state: RootState) => state.days);
 
   function showDate(num_Days: number) {
@@ -27,11 +27,12 @@ function DateSlider(props: Props) {
     <div style={{ width: '100%' }}>
       <div style={{ display: 'flex',height:'5%' }}>
         <DateBtn>Room</DateBtn>
-        {showDate(num_Days).map((item) => {
+        {showDate(num_Days).map((item,key) => {
           return (
             <DateBtn
+            key={key}
               style={
-                item.dd === todayDate
+                item.dd === dayjs(selectedDay).format('DD')
                   ? { backgroundColor: '#1677FF', color: 'white' }
                   : {}
               }
