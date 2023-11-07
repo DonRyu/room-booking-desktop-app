@@ -58,7 +58,7 @@ function View() {
       style={{
         minHeight: 830,
         height: '97vh',
-        minWidth: 1700,
+        minWidth: 1751,
         width: '100%',
       }}
     >
