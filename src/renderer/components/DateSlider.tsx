@@ -25,7 +25,7 @@ let dummy = [
     ],
   },
   {
-    room: 203,
+    room: 20223,
     booking: [
       {
         date: 0,
@@ -74,15 +74,7 @@ function DateSlider(props: Props) {
           );
         })}
       </div>
-
-      {dummy.map(((item)=>{
-        return (
-          <div >
-            <Booking room={item.room} />
-          </div>
-        );
-      }))}
-
+      <Booking />
     </div>
   );
 }

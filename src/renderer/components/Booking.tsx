@@ -4,12 +4,8 @@ import { RootState } from '../redux/store';
 import { Button } from 'antd';
 import { BookingBtn, DateBtn } from '../style';
 
-interface Props {
-  room: number;
-}
 
-
-function Booking({room}:any) {
+function Booking() {
   const num_Days = useSelector((state: RootState) => state.days);
   const test = [1,2,3,4]
   const [obj,setObj] = useState({kim:'asd',b:'qwe'})
@@ -17,7 +13,7 @@ function Booking({room}:any) {
   return (
     <div style={{ height: '95%' }}>
       <div style={{ display: 'flex' }}>
-        <BookingBtn>{room}</BookingBtn>
+        <BookingBtn></BookingBtn>
         {Array(num_Days)
           .fill(1)
           .map((_, key) => {
