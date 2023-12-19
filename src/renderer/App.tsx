@@ -28,6 +28,7 @@ import logoSm from '../renderer/LogoSm.png';
 import { HeaderBtn } from './style';
 import dayjs from 'dayjs';
 
+
 function View() {
   const [collapsed, setCollapsed] = useState(true);
   const num_Days = useSelector((state: RootState) => state.days);
@@ -36,6 +37,8 @@ function View() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.api.getRoomData("asd")
+
     navigate(`/`);
   }, []);
 
