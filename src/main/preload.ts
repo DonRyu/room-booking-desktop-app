@@ -7,7 +7,7 @@ export type Channels = 'ipc-example';
 const WINDOW_API = {
   getRoomData: (msg: string) =>
     ipcRenderer.invoke('getRoomData').then((res: any) => {
-      console.log('res', res);
+      console.log('res', JSON.stringify(res));
     }),
 };
 
