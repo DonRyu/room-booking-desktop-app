@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import dayjs from 'dayjs';
 import { Button } from 'antd';
 import { DateBtn } from '../style';
 import Booking from './Booking';
+import { Room } from '../../types';
 
 interface Props {}
 
@@ -43,9 +44,18 @@ let dummy = [
 
 function DateSlider(props: Props) {
   const {} = props;
+  const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootState) => state.selectedDay);
   const num_Days = useSelector((state: RootState) => state.days);
-  const [room, setRoom] = useState([1, 2, 3, 4, 5]);
+  const roomData = useSelector((state: RootState) => state.roomData);
+
+  useEffect(() => {
+    window.api.getRoomData().then((res: Room[]) => {
+      // dispatch(
+      //   roomData(res),
+      // );
+    });
+  }, []);
 
   function showDate(num_Days: number) {
     const startOfWeek = dayjs(selectedDay).startOf('week');

@@ -2,15 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { numOfDays } from '../constants';
 import dayjs, { Dayjs } from 'dayjs';
+import { Room } from '../../types';
 
 export interface CalendarSate {
   days: number;
-  selectedDay:string;
+  selectedDay: string;
+  roomData: Room[];
 }
 
 const initialState: CalendarSate = {
   days: numOfDays.month,
   selectedDay: dayjs().toISOString(),
+  roomData: [],
 };
 
 export const calendarSlice = createSlice({
@@ -23,7 +26,10 @@ export const calendarSlice = createSlice({
     changeSelectedDay: (state, action: PayloadAction<string>) => {
       state.selectedDay = action.payload;
     },
-  },
+    getRoomData: (state, action: PayloadAction<[]>) => {
+      state.roomData = action.payload;
+    }
+  }
 });
 
 // Action creators are generated for each case reducer function

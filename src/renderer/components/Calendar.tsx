@@ -1,9 +1,6 @@
 import React from 'react';
 import DateSlider from './DateSlider';
 
-
-
-
 interface Props {}
 
 function Calendar(props: Props) {

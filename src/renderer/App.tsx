@@ -37,8 +37,6 @@ function View() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.api.getRoomData("asd")
-
     navigate(`/`);
   }, []);
 
