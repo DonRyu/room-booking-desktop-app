@@ -55,24 +55,30 @@ function Booking({ days }: any) {
       const differenceInDays = checkOutDate.diff(checkInDate, 'day');
       for (let i = 1; i <= differenceInDays; i++) {
         booking.push({
+          room_number:item.room_number,
           date: checkInDate.day() + i,
           user: item.id,
           type: item.type,
         });
       }
-      return {
-        room: item.room_number,
-        booking,
-      };
+      return
     });
     return result;
   };
 
   return (
     <div style={{ height: '95%' }}>
-      <div style={{ display: 'flex' }}>
+      <div>
         {convertRoomData().map((item) => {
           return <BookingBtn>{item.room}</BookingBtn>;
+        })}
+      </div>
+
+      <div style={{ display: 'flex' }}>
+        {convertRoomData().map((item) => {
+          return item.booking.map((elm) => {
+            return <div>{elm.date}</div>;
+          });
         })}
       </div>
     </div>
