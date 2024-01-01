@@ -6,54 +6,19 @@ import { Button } from 'antd';
 import { DateBtn } from '../style';
 import Booking from './Booking';
 import { Room } from '../../types';
+import { getRoomData } from '../redux/slice';
 
 interface Props {}
-
-let dummy = [
-  {
-    room: 211,
-    booking: [
-      {
-        date: 0,
-        user: 18,
-        type: 2,
-      },
-      {
-        date: 1,
-        user: 18,
-        type: 2,
-      },
-    ],
-  },
-  {
-    room: 20223,
-    booking: [
-      {
-        date: 0,
-        user: 18,
-        type: 2,
-      },
-      {
-        date: 1,
-        user: 18,
-        type: 2,
-      },
-    ],
-  },
-];
 
 function DateSlider(props: Props) {
   const {} = props;
   const dispatch = useDispatch();
   const selectedDay = useSelector((state: RootState) => state.selectedDay);
   const num_Days = useSelector((state: RootState) => state.days);
-  const roomData = useSelector((state: RootState) => state.roomData);
 
   useEffect(() => {
     window.api.getRoomData().then((res: Room[]) => {
-      // dispatch(
-      //   roomData(res),
-      // );
+      dispatch(getRoomData(res));
     });
   }, []);
 
@@ -84,7 +49,7 @@ function DateSlider(props: Props) {
           );
         })}
       </div>
-      <Booking />
+      <Booking days={showDate(num_Days)} />
     </div>
   );
 }

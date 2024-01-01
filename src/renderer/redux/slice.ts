@@ -26,13 +26,13 @@ export const calendarSlice = createSlice({
     changeSelectedDay: (state, action: PayloadAction<string>) => {
       state.selectedDay = action.payload;
     },
-    getRoomData: (state, action: PayloadAction<[]>) => {
+    getRoomData: (state, action: PayloadAction<Room[]>) => {
       state.roomData = action.payload;
     }
   }
 });
 
 // Action creators are generated for each case reducer function
-export const { changeDays, changeSelectedDay } = calendarSlice.actions;
+export const { changeDays, changeSelectedDay,getRoomData } = calendarSlice.actions;
 
 export default calendarSlice.reducer;
