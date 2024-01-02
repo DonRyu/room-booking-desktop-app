@@ -26,14 +26,17 @@ import { Room } from '../../types';
 // 1 2 3 4 5 6 7 8 9 (체크아웃 날짜는 포함하지 않음)
 
 // {
-//   room: 20223,
+//
 //   booking: [
+//     room: 20223,
 //     {
+//
 //       date: 1,
 //       user: 18,
 //       type: 2,
 //     },
 //     {
+//
 //       date: 2,
 //       user: 18,
 //       type: 2,
@@ -45,40 +48,18 @@ function Booking({ days }: any) {
   const num_Days = useSelector((state: RootState) => state.days);
   const roomDataArr = useSelector((state: RootState) => state.roomData);
 
-  const convertRoomData = () => {
-    const dateFormat = 'YYYY-MM-DD';
 
-    let result = roomDataArr.map((item) => {
-      let booking = [];
-      const checkInDate = dayjs(item.check_in, { format: dateFormat });
-      const checkOutDate = dayjs(item.check_out, { format: dateFormat });
-      const differenceInDays = checkOutDate.diff(checkInDate, 'day');
-      for (let i = 1; i <= differenceInDays; i++) {
-        booking.push({
-          room_number:item.room_number,
-          date: checkInDate.day() + i,
-          user: item.id,
-          type: item.type,
-        });
-      }
-      return
-    });
-    return result;
-  };
-
+  // console.log('roomDataArr', roomDataArr.booking[0].date);
   return (
     <div style={{ height: '95%' }}>
-      <div>
-        {convertRoomData().map((item) => {
-          return <BookingBtn>{item.room}</BookingBtn>;
-        })}
-      </div>
-
       <div style={{ display: 'flex' }}>
-        {convertRoomData().map((item) => {
-          return item.booking.map((elm) => {
-            return <div>{elm.date}</div>;
-          });
+        <BookingBtn>1</BookingBtn>
+        {days.map((item: any, key: number) => {
+          return (
+            <BookingBtn key={key}>
+
+            </BookingBtn>
+          );
         })}
       </div>
     </div>

@@ -7,7 +7,7 @@ import { Room } from '../../types';
 export interface CalendarSate {
   days: number;
   selectedDay: string;
-  roomData: Room[];
+  roomData: any;
 }
 
 const initialState: CalendarSate = {
@@ -27,12 +27,32 @@ export const calendarSlice = createSlice({
       state.selectedDay = action.payload;
     },
     getRoomData: (state, action: PayloadAction<Room[]>) => {
-      state.roomData = action.payload;
-    }
-  }
+      const dateFormat = 'YYYY-MM-DD';
+      let result = [];
+      result = action.payload.map((item) => {
+        let booking = [];
+        const checkInDate = dayjs(item.check_in, { format: dateFormat });
+        const checkOutDate = dayjs(item.check_out, { format: dateFormat });
+        const differenceInDays = checkOutDate.diff(checkInDate, 'day');
+        for (let i = 1; i <= differenceInDays; i++) {
+          booking.push({
+            date: checkInDate.day() + i,
+            user: item.id,
+            type: item.type,
+          });
+        }
+        return {
+          room_number: item.room_number,
+          booking,
+        };
+      });
+      state.roomData = result
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const { changeDays, changeSelectedDay,getRoomData } = calendarSlice.actions;
+export const { changeDays, changeSelectedDay, getRoomData } =
+  calendarSlice.actions;
 
 export default calendarSlice.reducer;
