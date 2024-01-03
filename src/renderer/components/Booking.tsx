@@ -19,6 +19,9 @@ function Booking({ days }: { days: days[] }) {
   console.log('roomDataArr', roomDataArr); // {room_number: 101, booking:[{date:1,user:13,type:2}]}
   console.log('days', days); // [{ddd: 'Sun', dd: '31'}]
 
+
+
+  // Jan 2nd 2024, 그냥 숫자로만 맞춰나서 월자 상관없이 일자만 맞으면 그냥 떠버림;;;;;
   return (
     <div style={{ height: '95%' }}>
       <div style={{ display: 'flex' }}>
