@@ -14,6 +14,7 @@ export const BookingBtn = styled.button`
   height: 100%;
   min-height: 40px;
   min-width: 50px;
+  background-color:${(props) => props.color || ''};
 `;
 
 export const HeaderBtn = styled(Button)`
