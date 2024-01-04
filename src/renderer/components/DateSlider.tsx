@@ -27,7 +27,11 @@ function DateSlider(props: Props) {
     let days = [];
     for (let i = 0; i < num_Days; i++) {
       const date = startOfWeek.add(i, 'day');
-      days.push({ ddd: date.format('ddd'), dd: date.format('DD') });
+      days.push({
+        ddd: date.format('ddd'),
+        dd: date.format('DD'),
+        ts: date.unix(),
+      });
     }
     return days;
   }

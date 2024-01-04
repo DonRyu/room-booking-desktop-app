@@ -35,8 +35,11 @@ export const calendarSlice = createSlice({
         const checkOutDate = dayjs(item.check_out, { format: dateFormat });
         const differenceInDays = checkOutDate.diff(checkInDate, 'day');
         for (let i = 1; i <= differenceInDays; i++) {
+          const currentDate = checkInDate.add(i, 'day');
+          const timestamp = currentDate.unix();
+
           booking.push({
-            date: checkInDate.day() + i,
+            date: timestamp,
             user: item.id,
             type: item.type,
           });
@@ -46,7 +49,7 @@ export const calendarSlice = createSlice({
           booking,
         };
       });
-      state.roomData = result
+      state.roomData = result;
     },
   },
 });
