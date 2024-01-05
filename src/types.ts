@@ -12,12 +12,25 @@ export interface Room {
   created_date: string;
 }
 
-export interface roomData{
-
+export interface roomData {
+  room_number: number;
+  booking: booking[];
 }
 
-export let BookingType = {
-  Hold: 'red',
-  Offer: 'green',
-  Book: 'blue',
-};
+export interface booking {
+  date: number;
+  user: number;
+  type: BookingType;
+}
+
+export interface BookingType {
+  Hold: string;
+  Offer: string;
+  Book: string;
+}
+
+export interface days {
+  ddd: string;
+  dd: string;
+  ts: number;
+}
