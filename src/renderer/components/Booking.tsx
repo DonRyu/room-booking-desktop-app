@@ -23,7 +23,7 @@ function Booking({ days }: { days: days[] }) {
   return (
     <div style={{ height: '95%' }}>
       <div style={{ display: 'flex' }}>
-        <div>
+        <div style={{width:'100%'}}>
           {roomDataArr.map((room: any, roomKey: number) => (
             <div key={roomKey} style={{ display: 'flex' }}>
               <BookingBtn>{room.room_number}</BookingBtn>
