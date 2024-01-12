@@ -17,6 +17,7 @@ function Booking({ days }: { days: days[] }) {
   const num_Days = useSelector((state: RootState) => state.days);
   const roomDataArr = useSelector((state: RootState) => state.roomData);
 
+  //testing
   console.log('roomDataArr', roomDataArr); // {room_number: 101, booking:[{date:1,user:13,type:2}]}
   console.log('days', days); // [{ddd: 'Sun', dd: '31'}]
 
